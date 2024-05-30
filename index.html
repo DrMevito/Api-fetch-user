@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketBase Integration</title>
+</head>
+<body>
+    <h1>PocketBase Integration</h1>
+
+    <!-- Registration Form -->
+    
+    <form style="text-align:center;" id="register-form">
+        <h2>Register</h2>
+        <label for="register-name">Name:</label>
+        <input type="text" id="register-name" required> </br>
+        <label for="register-email">Email:</label>
+        <input type="email" id="register-email" required> </br>
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" required> </br>
+        <button type="button" id="register-btn">Register</button>
+        <p id="register-message"></p>
+    </form>
+    
+
+    <button id="switch-to-login-btn">I am already registered</button>
+
+    <!-- Login Form -->
+    
+    <form id="login-form" style="display:none;">
+        <h2>Login</h2>
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" required>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" required>
+        <button type="button" id="login-btn">Login</button>
+        <p id="login-message"></p>
+    </form>
+
+    <!-- Course Panel -->
+    <div id="course-panel" style="display:none;">
+        <h2>Welcome, <span id="user-name"></span>!</h2>
+        <button id="logout-btn">Logout</button>
+        <div id="courses-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

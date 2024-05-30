@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PocketBase Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #login-form, #register-form, #course-panel { display: none; }
+    </style>
+</head>
+<body>
+    <h1>PocketBase Dashboard</h1>
+
+    <div id="login-form">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button id="login-btn">Login</button>
+        <p id="login-message"></p>
+    </div>
+
+    <div id="register-form">
+        <h2>Register</h2>
+        <input type="text" id="register-name" placeholder="Name">
+        <input type="email" id="register-email" placeholder="Email">
+        <input type="password" id="register-password" placeholder="Password">
+        <button id="register-btn">Register</button>
+        <p id="register-message"></p>
+    </div>
+
+    <div id="course-panel">
+        <h2>Welcome, <span id="user-name"></span></h2>
+        <button id="logout-btn">Logout</button>
+        <h3>Your Courses</h3>
+        <div id="courses-container"></div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

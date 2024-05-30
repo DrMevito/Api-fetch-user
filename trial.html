@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketBase Integration</title>
+</head>
+<body>
+    <h1>PocketBase Integration</h1>
+    
+    <!-- Form for creating a new user -->
+    <h2>Create User</h2>
+    <form id="createUserForm">
+        <label for="createEmail">Email:</label>
+        <input type="email" id="createEmail" required>
+        <label for="createPassword">Password:</label>
+        <input type="password" id="createPassword" required>
+        <button type="submit">Create User</button>
+    </form>
+
+    <!-- Form for user authentication -->
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Display user data -->
+    <h2>User Data</h2>
+    <button id="getUserData">Get User Data</button>
+    <pre id="userData"></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
