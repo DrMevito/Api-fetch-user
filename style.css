@@ -17,10 +17,10 @@ input[type=text], input[type=email], input[type=password] {
   resize: vertical;
 }
 
-input[type=text], input[type=email], input[type=password] ::focus{
-  outline: 2px solid #081ccc;
+input[type=text]:valid, input[type=email]:valid, input[type=password]:valid {
+  outline: 2px solid #0000c4;
   border: none;
-  background-color:yellow;
+  background-color:#e6f1ff;
 }
 
 
