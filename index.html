@@ -6,59 +6,41 @@
     
     <link rel="stylesheet" href="style.css">
     
-<title>PocketBase Integration</title>
+    <title>Course App</title>
 </head>
-    
 <body>
-    <h1>PocketBase Integration</h1>
+    <div id="course-panel" style="display: none;">
+        <h1>Welcome, <span id="user-name"></span></h1>
+        <button id="logout-btn">Logout</button>
+ <div id="courses-container"></div>
+    </div>
 
-    <!-- Registration Form -->
-    
     <form id="register-form">
         <h2>Register</h2>
-        <label for="register-name">Name:</label>
-        <input type="text"  placeholder="name" id="register-name" required>
-        <label for="register-email">Email:</label>
-        <input type="email"  placeholder="email" id="register-email" required>
-        <label for="register-password">Password:</label>
-        <input type="password"  placeholder="password" id="register-password" required>
+        <input type="text" id="register-name" placeholder="Name" required>
+        <input type="email" id="register-email" placeholder="Email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="please enter a valid email address">
+        
+        <input type="password" id="register-password" placeholder="Password" required pattern=".{8,}" title="Atleast 8 or more characters">
         
     <div class="button-container">
+        <button type="submit" id="register-btn">Register</button>
         
-        <button type="button" id="register-btn">Register</button>
-        
-    </div>
+        <button type="button" id="switch-to-login-btn">I am already registered</button></div>
         
         <p id="register-message"></p>
     </form>
-    
 
-    <button id="switch-to-login-btn">I am already registered</button>
-
-    <!-- Login Form -->
-    
-    <form id="login-form" style="display:none;">
+    <form id="login-form" style="display: none;">
         <h2>Login</h2>
-        <label for="login-email">Email:</label>
-        <input type="email" id="login-email" required>
-        <label for="login-password">Password:</label>
-        <input type="password" id="login-password" required>
-        
-    <div class="button-container">
-        
-        <button type="button"   id="login-btn">Login</button>
-        
-    </div>
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+
+<div class="button-container">
+        <button type="submit" id="login-btn">Login</button>
+        <button type="button" id="switch-to-register-btn">I am a new user</button></div>
         
         <p id="login-message"></p>
     </form>
-
-    <!-- Course Panel -->
-    <div id="course-panel" style="display:none;">
-        <h2>Welcome, <span id="user-name"></span>!</h2>
-        <button id="logout-btn">Logout</button>
-        <div id="courses-container"></div>
-    </div>
 
     <script src="script.js"></script>
 </body>

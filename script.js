@@ -1,8 +1,13 @@
 const apiUrl = 'https://deba-debnath.pockethost.io'; // Your PocketHost URL
 
-document.getElementById('login-btn').onclick = async () => {
+document.getElementById('login-form').onsubmit = async (event) => {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+
+    console.log('Login form submitted', email, password); // Debugging
+
     try {
         const response = await fetch(`${apiUrl}/api/collections/users/auth-with-password`, {
             method: 'POST',
@@ -35,10 +40,14 @@ document.getElementById('login-btn').onclick = async () => {
     }
 };
 
-document.getElementById('register-btn').onclick = async () => {
+document.getElementById('register-form').onsubmit = async (event) => {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
     const name = document.getElementById('register-name').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
+
+    console.log('Register form submitted', name, email, password); // Debugging
 
     try {
         // Check if the user is already registered
@@ -69,14 +78,13 @@ document.getElementById('register-btn').onclick = async () => {
         if (!response.ok) {
             throw new Error(registerResponse.message);
         }
-
+    
+//Experiment ⭐
+document.getElementById('register-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('switch-to-login-btn').style.display = 'none';
+   //Experiment ends ⭐    
         document.getElementById('register-message').textContent = 'User registered successfully!';
-
-        document.getElementById('register-form').style.display = 'none';
-            document.getElementById('login-form').style.display = 'block';
-            document.getElementById('switch-to-login-btn').style.display = 'none';
-
-        
     } catch (error) {
         console.error('Registration error:', error);
         document.getElementById('register-message').textContent = 'Registration failed. Please try again.';
@@ -95,6 +103,14 @@ document.getElementById('switch-to-login-btn').onclick = () => {
     document.getElementById('login-form').style.display = 'block';
     document.getElementById('switch-to-login-btn').style.display = 'none';
 };
+
+//Testing area second 🔚 🔚
+document.getElementById('switch-to-register-btn').onclick = () => {
+    document.getElementById('register-form').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('switch-to-login-btn').style.display = 'block';
+};
+//testing area end 🔚 🔚
 
 async function showCourses() {
     const userId = localStorage.getItem('userId');
@@ -129,18 +145,18 @@ async function showCourses() {
             return;
         }
 
-                            for (const userCourse of userCourses) {
-                                try {
-                                    const courseResponse = await fetch(`${apiUrl}/api/collections/courses/records/${userCourse.courseId}`, {
-                                        headers: { Authorization: `Bearer ${token}` }
-                                    });
+        for (const userCourse of userCourses) {
+            try {
+                const courseResponse = await fetch(`${apiUrl}/api/collections/courses/records/${userCourse.courseId}`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
 
-                                    const course = await courseResponse.json();
-                                    if (!courseResponse.ok) {
-                                        throw new Error(course.message);
-                                    }
+                    const course = await courseResponse.json();
+                    if (!courseResponse.ok) {
+                        throw new Error(course.message);
+                    }
 
-            const courseElement = document.createElement('div');
+                    const courseElement = document.createElement('div');
                     courseElement.innerHTML = `<h4>${course.name}</h4><p>${course.description}</p>`;
                     coursesContainer.appendChild(courseElement);
 
@@ -168,7 +184,7 @@ async function showCourses() {
                         console.error('Error fetching videos for courseId:', course.id, videoError);
                     }
                 } catch (courseError) {
-                    console.error('Error fetching course details for courseId:', userCourse.courseId, courseError);
+                    console.error('Error fetching course details for courseId:', courseId, courseError);
                 }
             }
         }

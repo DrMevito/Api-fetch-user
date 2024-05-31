@@ -17,7 +17,14 @@ input[type=text], input[type=email], input[type=password] {
   resize: vertical;
 }
 
-button[type=button] {
+input[type=text], input[type=email], input[type=password] ::focus{
+  outline: 2px solid #081ccc;
+  border: none;
+  background-color:yellow;
+}
+
+
+button[type=submit] {
   background-color: #7903ab;
   color: white;
   padding: 12px 20px;
@@ -26,12 +33,13 @@ button[type=button] {
   cursor: pointer;
 }
 
-button[type=button]:hover {
+button[type=submit]:hover {
   background-color: #4513a1;
 }
 
 .button-container{
-  text-align:center;
+  display:flex;
+  justify-content:space-between;
 }
 
 .container {
