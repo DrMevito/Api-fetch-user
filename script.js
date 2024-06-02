@@ -34,6 +34,7 @@ document.getElementById('login-form').onsubmit = async (event) => {
         localStorage.setItem('userId', authResponse.record.id);
         localStorage.setItem('userName', authResponse.record.name);
         document.getElementById('login-message').textContent = 'Login successful!';
+        clearLoginForm();
         showCourses();
     } catch (error) {
         console.error('Login error:', error);
@@ -85,6 +86,7 @@ document.getElementById('register-form').style.display = 'none';
     document.getElementById('switch-to-login-btn').style.display = 'none';
    //Experiment ends ⭐    
         document.getElementById('register-message').textContent = 'User registered successfully!';
+    clearRegisterForm();
     } catch (error) {
         console.error('Registration error:', error);
         document.getElementById('register-message').textContent = 'Registration failed. Please try again.';
@@ -102,6 +104,10 @@ document.getElementById('switch-to-login-btn').onclick = () => {
     document.getElementById('register-form').style.display = 'none';
     document.getElementById('login-form').style.display = 'block';
     document.getElementById('switch-to-login-btn').style.display = 'none';
+
+    document.getElementById('register-name').value = '';
+    document.getElementById('register-email').value = '';
+    document.getElementById('register-password').value = '';
 };
 
 //Testing area second 🔚 🔚
@@ -109,6 +115,9 @@ document.getElementById('switch-to-register-btn').onclick = () => {
     document.getElementById('register-form').style.display = 'block';
     document.getElementById('login-form').style.display = 'none';
     document.getElementById('switch-to-login-btn').style.display = 'block';
+    
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
 };
 //testing area end 🔚 🔚
 
@@ -198,6 +207,18 @@ function showLoginForm() {
     document.getElementById('register-form').style.display = 'block';
     document.getElementById('switch-to-login-btn').style.display = 'block';
     document.getElementById('course-panel').style.display = 'none';
+}
+
+
+function clearLoginForm() {
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
+}
+
+function clearRegisterForm() {
+    document.getElementById('register-name').value = '';
+    document.getElementById('register-email').value = '';
+    document.getElementById('register-password').value = '';
 }
 
 // Check if user is already logged in
